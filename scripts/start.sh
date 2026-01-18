@@ -25,17 +25,17 @@ chmod -R 750 /opt/scripts
 chown -R ${UID}:${GID} ${DATA_DIR}
 
 echo "---Starting...---"
-term_handler() {
-	kill -SIGINT $(pidof SniperElite4_Dedicated.exe)
-	tail --pid=$(pidof SniperElite4_Dedicated.exe) -f 2>/dev/null
-	exit 143;
-}
+# term_handler() {
+# 	kill -SIGINT $(pidof SniperElite4_Dedicated.exe)
+# 	tail --pid=$(pidof SniperElite4_Dedicated.exe) -f 2>/dev/null
+# 	exit 143;
+# }
 
-trap 'kill ${!}; term_handler' SIGTERM
-su ${USER} -c "/opt/scripts/start-server.sh" &
-killpid="$!"
-while true
-do
-	wait $killpid
-	exit 0;
-done
+# trap 'kill ${!}; term_handler' SIGTERM
+su ${USER} -c "/opt/scripts/start-server.sh" # &
+# killpid="$!"
+# while true
+# do
+# 	wait $killpid
+# 	exit 0;
+# done
