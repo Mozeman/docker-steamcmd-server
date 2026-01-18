@@ -29,7 +29,7 @@ jobs:
         with:
           images: ghcr.io/${{ github.repository }}
           tags: |
-            type=raw,value=latest
+            type=raw,value=sniperelite4
             type=sha
 
       - name: Build and push
