@@ -100,4 +100,6 @@ echo "---Server ready---"
 
 echo "---Start Server---"
 cd ${SERVER_DIR}
-xvfb-run --auto-servernum --server-args='-screen 0 640x480x24:32' wine64 ${SERVER_DIR}/bin/SniperElite4_Dedicated.exe -userdatapath ${SERVER_DIR}/userdata ${GAME_PARAMS}
+export WINEDEBUG=-all
+#xvfb-run --auto-servernum --server-args='-screen 0 640x480x24:32' wine64 ${SERVER_DIR}/bin/SniperElite4_Dedicated.exe -userdatapath ${SERVER_DIR}/userdata ${GAME_PARAMS}
+exec xvfb-run --auto-servernum --server-args='-screen 0 640x480x24:32' wine64 "${SERVER_DIR}/bin/SniperElite4_Dedicated.exe" ${GAME_PARAMS}
